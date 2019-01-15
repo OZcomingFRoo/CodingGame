@@ -9,3 +9,5 @@ For example (in this case "Example" file):
 Player must shoot the closest target so he can focus on the next
 
 Link to task: https://www.codingame.com/ide/puzzle/onboarding
+
+git in VS2017 CANNOT DETECT FILES BEING DELETED
