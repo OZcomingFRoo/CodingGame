@@ -1,7 +1,7 @@
 
 ### Temperatures
 
-**Task Description : **
+**Task Description :**
 
 In this exercise, you have to analyze records of temperature to find the closest to zero.
 
