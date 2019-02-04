@@ -9,7 +9,7 @@ using System.Collections.Generic;
  * Auto-generated code below aims at helping you parse
  * the standard input according to the problem statement.
  **/
-class Solution
+class Temperatures
 {
     static void Main(string[] args)
     {
