@@ -1,9 +1,8 @@
-# CodingGame
-Solutions for tasks published by "CodingGame" website. The solutions is written in "C#"
-_________________________________________________________________________________________
 
-### All Solutions can be found in folder "tasks"
-Each task has it's own folder containing two main files:
+### Temperatures
 
-* [task_name].md file - Has the description of task + the link to the task in the official website
-* [task].cs file - the solution itself (just copy and paste it in task)
+**Task Description : **
+
+In this exercise, you have to analyze records of temperature to find the closest to zero.
+
+[Link to task, copy and paste the code](https://www.codingame.com/ide/puzzle/temperatures)
