@@ -1,65 +1,68 @@
 ﻿using System;
-using System.Linq;
-using System.IO;
 using System.Text;
-using System.Collections;
 using System.Collections.Generic;
 
-
-/**
- * Auto-generated code below aims at helping you parse
- * the standard input according to the problem statement.
- **/
 class ACSII_ART
 {
-    static int L;
-    static int H;
     const string ALL_LETTERS = "ABCDEFGHIJKLMNOPQRSTUVWXYZ?";
-    static List<List<string>> coll;
+    static List<List<string>> asciiLetters;
+    static int height;
+    static int width;
 
     static void Main(string[] args)
     {
-        L = int.Parse(Console.ReadLine());
-        H = int.Parse(Console.ReadLine());
-        string T = Console.ReadLine().ToUpper();
-        GetLetterInASCII();
-        for (int heightIndex = 0; heightIndex < H; heightIndex++)
+        width = int.Parse(Console.ReadLine()); // Get width
+        height = int.Parse(Console.ReadLine()); // Get height
+        string input = Console.ReadLine().ToUpper(); // Get input and uppercase all lowercase letter
+        GetLetterInASCII(); // Assing input to "asciiLetters"
+        StringBuilder renderer = new StringBuilder();
+        for (int heightIndex = 0; heightIndex < height; heightIndex++) // render each level.
         {
-            StringBuilder SB = new StringBuilder();
-            for (int tIndex = 0; tIndex < T.Length; tIndex++)
+            renderer.Clear(); // Reset input
+            for (int inputCharIndex = 0; inputCharIndex < input.Length; inputCharIndex++)
             {
-                char letter = T[tIndex];
+                // Get character
+                char letter = input[inputCharIndex];
+                // Get cell's index from "asciiLetters" ("ALL_LETTERS" are the "keys" to fetch those indexes)
                 int letterIndex = ALL_LETTERS.IndexOf(letter);
-                if (letterIndex == -1)
-                {
+                // If no character was found , then letter index is considered "unknown" index (i.e. '?')
+                if (letterIndex == -1) 
+                { 
                     letterIndex = ALL_LETTERS.IndexOf('?');
                 }
-                SB.Append(coll[heightIndex][letterIndex]);
+                renderer.Append(asciiLetters[heightIndex][letterIndex]);
             }
-            SB.AppendLine();
-            Console.Write(SB.ToString());
+            renderer.AppendLine();
+            Console.Write(renderer.ToString());
         }
     }
+    /// <summary>
+    /// Gets input from "CodingGames"
+    /// Adds input to "asciiLetters"
+    /// </summary>
     static void GetLetterInASCII()
     {
-        coll = new List<List<string>>();
-        for (int i = 0; i < H; i++)
+        asciiLetters = new List<List<string>>();
+        for (int i = 0; i < height; i++)
         {
             string ROW = Console.ReadLine();
-            coll.Add(SplitLol(ROW));
+            asciiLetters.Add(SplitByWidth(ROW));
         }
     }
 
-    static List<string> SplitLol(string s)
+    /// <summary>
+    /// Utility function to split a set of partial ASCII letters (all are from the same height index) to each cell
+    /// </summary>
+    static List<string> SplitByWidth(string row)
     {
         List<string> returnedObj = new List<string>();
-        for (int i = 0; i < s.Length; i += L)
+        for (int i = 0; i < row.Length; i += width)
         {
             int index = i;
             StringBuilder SB = new StringBuilder();
-            while (index < i + L)
+            while (index < i + width)
             {
-                SB.Append(s[index]);
+                SB.Append(row[index]);
                 index++;
             }
             returnedObj.Add(SB.ToString());
