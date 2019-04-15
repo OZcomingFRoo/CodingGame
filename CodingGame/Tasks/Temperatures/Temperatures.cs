@@ -1,5 +1,7 @@
 ﻿using System;
-
+using System.Linq;
+using System.Collections;
+using System.Collections.Generic;
 class Temperatures
 {
     static void Main(string[] args)
@@ -8,6 +10,7 @@ class Temperatures
         int resultDistance = int.MaxValue;
         int n = int.Parse(Console.ReadLine()); // the number of temperatures to analyse
         string[] inputs = Console.ReadLine().Split(' ');
+        List<string> asd = new List<string>();
         for (int i = 0; i < n; i++)
         {
             int t = int.Parse(inputs[i]); // a temperature expressed as an integer ranging from -273 to 5526
